@@ -6,7 +6,8 @@ namespace c0731586_week4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            countrySide Ontario = new countrySide();
+            Ontario.run ();
         }
     }
 
@@ -25,18 +26,38 @@ namespace c0731586_week4
 
         }
 
-        class Countryside
+        class countrySide
         {
             public Village Maple;
             public Village Toronto;
             public Village Ajax;
+            public Village Head;
+            public Village Tail;
+            public Village Temp;
 
-            public void AppDominInitializer()
+            public void run()
+            {
+                this.Mapinitializer();
+                 this.LookForAstridile();
+             }
+
+            private void LookForAstridile()
+            {
+                throw new NotImplementedException();
+            }
+
+            private void Mapinitializer()
+            {
+                throw new NotImplementedException();
+            }
+
+            public void MapinInitializer()
             {
                 Maple = new Village();
                 Maple.VillageName = "Maple";
                 Maple.previousVillage = null;
                 Maple.nextVillage = Toronto;
+                Maple.isAstrildeHere = true;
                 Toronto = new Village();
                 Toronto.previousVillage = Maple;
                 Toronto.nextVillage = Ajax;
@@ -44,11 +65,33 @@ namespace c0731586_week4
                 Ajax.VillageName = "Ajax";
                 Ajax.previousVillage = Toronto;
                 Ajax.nextVillage = null;
-                Ajax.isAstrildeHere = true;
+               // Ajax.isAstrildeHere = true;
+
+
 
             }
+
+
             public void LookForAstridileHere()
             {
+
+
+                Head = Maple;
+                if (Head.isAstrildeHere)
+
+                {
+                    Console.WriteLine("Yeah !! Astrilde is in " + Head.VillageName);
+                }
+               // while (true)
+
+               // {
+
+               // }
+
+
+
+
+
 
             }
         }
