@@ -6,10 +6,33 @@ namespace c0731586_week4
     {
         static void Main(string[] args)
         {
+
             countrySide Ontario = new countrySide();
-            Ontario.run ();
+            Ontario.run();
+
         }
     }
+
+    class LearningExample
+    {
+        public void run()
+        {
+            Village Toronto;
+            Village a;
+            Village b;
+            Toronto = new Village();
+            a = Toronto;
+
+            Toronto = new Village();
+            b = Toronto;
+
+            if (a == b) { Console.WriteLine("same"); }
+            else
+            { Console.WriteLine("different obj refs"); }
+        }
+    }
+
+
 
     class Village
 
@@ -25,6 +48,7 @@ namespace c0731586_week4
             Village.numberofVillages++;
 
         }
+    }
 
         class countrySide
         {
@@ -33,29 +57,28 @@ namespace c0731586_week4
             public Village Ajax;
             public Village Head;
             public Village Tail;
-            public Village Temp;
+            public Village Current;
 
             public void run()
             {
-                this.Mapinitializer();
-                 this.LookForAstridile();
-             }
-
-            private void LookForAstridile()
-            {
-                throw new NotImplementedException();
+                this.MapInitializer();
+                this.LookForAstridileHere();
+                Console.WriteLine("Hugi found Astrilde in " + Current.VillageName);
             }
 
-            private void Mapinitializer()
+            
+            public void MapInitializer()
             {
-                throw new NotImplementedException();
-            }
 
-            public void MapinInitializer()
-            {
-                Maple = new Village();
+            Ajax = new Village();
+            Toronto = new Village();
+            Maple = new Village();
+
+
+            Maple = new Village();
                 Maple.VillageName = "Maple";
                 Maple.previousVillage = null;
+
                 Maple.nextVillage = Toronto;
                 Maple.isAstrildeHere = true;
                 Toronto = new Village();
@@ -65,9 +88,7 @@ namespace c0731586_week4
                 Ajax.VillageName = "Ajax";
                 Ajax.previousVillage = Toronto;
                 Ajax.nextVillage = null;
-               // Ajax.isAstrildeHere = true;
-
-
+               
 
             }
 
@@ -76,22 +97,25 @@ namespace c0731586_week4
             {
 
 
-                Head = Maple;
-                if (Head.isAstrildeHere)
-
+                Current = Maple;
+                while (Current.nextVillage !=null)
                 {
-                    Console.WriteLine("Yeah !! Astrilde is in " + Head.VillageName);
+                if (Current.isAstrildeHere)
+                {
+                    Console.WriteLine("found Astridle");
+                    Console.ReadLine();
+                    return;
                 }
-               // while (true)
+                else
+                {
 
-               // {
+                    Current = Current.nextVillage;
+            }
+                // while (true)
 
-               // }
+                // {
 
-
-
-
-
+                // }
 
             }
         }
